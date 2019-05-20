@@ -24,6 +24,10 @@ typedef struct List{
 }LIST;
 
 //Menus
+
+int menu();
+int findCompanyMenu();
+
 //Functions
 void byIndustries(LIST** head);
 COMPANY enterCompany(LIST *head);
@@ -32,7 +36,7 @@ void deleteCompanies(LIST** head);
 //Utils
 void printCompany(COMPANY company);
 void swap(LIST* A, LIST* B);
-void sortListByIndusrty(LIST* head);
+void sortListByIndustry(LIST* head);
 void sortListByName(LIST* head);
 //Nodes and Lists
 void insertNode(LIST** head, COMPANY company);

@@ -135,28 +135,28 @@ void deleteCompanies(LIST** head){
     printf("Enter debt: ");
     scanf_s("%lf", &debt);
     printf("Do you want to delete all companies with debt higher than %.2lf <Y/N>: ", debt);
-        while (1){
-            fflush(stdin);
-            c = toupper(c = getchar());
-            if (c != 'Y' && c != 'N'){
-                printf("Please enter Y/N! \n");
-                continue;
-            }
-            break;
+    while (1){
+        fflush(stdin);
+        c = toupper(c = getchar());
+        if (c != 'Y' && c != 'N'){
+            printf("Please enter Y/N! \n");
+            continue;
         }
-        if (c == 'N')
-            return;
+        break;
+    }
+    if (c == 'N')
+        return;
 
     while (current){
         if (current->company.debt >= debt){
-                flag = 1;
-                current = current->next;
-                deleteNodeAtPoss(head, poss);
+            flag = 1;
+            current = current->next;
+            deleteNodeAtPoss(head, poss);
         } else{
-                poss++;
-                current = current->next;
-            }
+            poss++;
+            current = current->next;
         }
+    }
     if (!flag){
         printf("No companies with debt higher than %.2lf found!\n", debt);
     }
@@ -193,27 +193,27 @@ void findCompany(LIST* head) {
             }
         } else {
             if (strstr(head->company.name, keyword)) {
-                    printf("\nID: %lld      ", head->company.ID);
-                    printf("Name: %s\n", head->company.name);
-                    count++;
-                }
+                printf("\nID: %lld      ", head->company.ID);
+                printf("Name: %s\n", head->company.name);
+                count++;
             }
-        head = head->next;
         }
+        head = head->next;
+    }
     if(count == 0){
         printf("No companies found! \n");
         return;
     }
     printf("Enter the id of the company you want to see: \n");
     scanf_s("%lld", &ID);
-        while(copy){
-            if (ID == copy->company.ID) {
-                printCompany(copy->company);
-                return;
-            }
-            copy = copy->next;
+    while(copy){
+        if (ID == copy->company.ID) {
+            printCompany(copy->company);
+            return;
         }
-        printf("Company Not found!\n");
+        copy = copy->next;
+    }
+    printf("Company Not found!\n");
 
 }
 
@@ -223,7 +223,7 @@ void byIndustries(LIST **head) {
         printf("\nList is empty!\n");
         return;
     }
-    sortListByIndusrty(*head);
+    sortListByIndustry(*head);
 
     LIST* current = *head;
     int flag = 1;
@@ -268,7 +268,7 @@ void swap(LIST* A, LIST* B){
     B->company = temp;
 }
 
-void sortListByIndusrty(LIST* head){
+void sortListByIndustry(LIST* head){
     int flag;
     LIST *temp1;
     LIST *temp2 = NULL;
