@@ -1,45 +1,6 @@
-#define _CRT_SECURE_NO_WARNINGS
-#define FILE_NAME "File.bin"
-#include<stdio.h>
-#include<stdlib.h>
-#include<string.h>
-#include<ctype.h>
-
-//todo see all double pointers
-
-typedef struct{
-    long long ID;
-    char name[50];
-    char industry[30];
-    double income;
-    double debt;
-    int workers;
-} COMPANY;
-typedef struct List{
-    COMPANY company;
-    struct List* next;
-}LIST;
-typedef struct Industries{
-    char industry[30];
-    struct Industries* next;
-}INDUSTRIES;
-
-
-void byIndustries(LIST** head);
-void printCompany(COMPANY company);
-void swap(LIST* A, LIST* B);
-void sortListByIndusrty(LIST* head);
-void sortListByName(LIST* head);
-void insertNode(LIST** head, COMPANY company);
-void deleteNodeAtPoss(LIST** head, int poss);
-void freeList(LIST* head, int flag);
-void readFile(LIST **head);
-void writeFile(LIST* head);
-COMPANY enterCompany(LIST *head);
-void findCompany(LIST* head);
-void deleteCompanies(LIST** head);
-
+#include "Header.h"
 //todo make no void functions
+
 //menus and main
 int menu(){
     int choice;
@@ -76,10 +37,9 @@ int main() {
     LIST* head = malloc(sizeof(LIST));
     head = NULL;
 
-    //LIST *temp;
-
     readFile(&head);
 
+    //LIST *temp;
     /*temp = head;
     while(temp!=NULL){
         printCompany(temp->company);
