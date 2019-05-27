@@ -3,4 +3,4 @@ project(stupidLists C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(stupidLists main.c Header.h)
+add_executable(stupidLists main.c Header.h functions.c)

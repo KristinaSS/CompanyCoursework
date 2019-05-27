@@ -18,6 +18,7 @@ typedef struct{
     double debt;
     int workers;
 } COMPANY;
+
 typedef struct List{
     COMPANY company;
     struct List* next;
